@@ -2,8 +2,9 @@
 
 Jupyter notebook server (port 8888) for deep learning.  Contains:
 
-- Caffe + CUDNN
-- Theano (no CUDNN)
+- Caffe
+- Theano
+- TensorFlow
 - MXnet
 - Keras
 - Lasagne
@@ -33,9 +34,7 @@ Usually I have a `data` and `workspace` folder that I like to attach.  This can 
 Putting it all together:
 
 ```
-docker run -it -P \
-  --device /dev/nvidia0 --device /dev/nvidia-uvm --device /dev/nvidiactl \
-  -v `pwd`/workspace:/root/workspace -v `pwd`/data:/root/data henryzlo/deepdock
+docker run -it -P --device /dev/nvidia0 --device /dev/nvidia-uvm --device /dev/nvidiactl -v `pwd`/workspace:/root/workspace -v `pwd`/data:/root/data henryzlo/deepdock
 ```
 
 If you want a shell in the image, run the command above, then use:
