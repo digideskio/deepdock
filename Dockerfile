@@ -66,6 +66,16 @@ RUN echo "deb http://cran.rstudio.com/bin/linux/ubuntu trusty/" >> /etc/apt/sour
 # Install latest version of R
 RUN apt-get update && apt-get install -y --force-yes r-base
 
+# Tensorflow
+# ----------
+
+RUN cp /usr/lib/x86_64-linux-gnu/libcudnn.so.4 /usr/local/cuda/lib64/libcudnn.so
+RUN rm -rf /usr/local/lib/python2.7/dist-packages/six*
+RUN rm -rf /usr/lib/python2.7/dist-packages/six*
+RUN pip install six
+pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.8.0-cp27-none-linux_x86_64.whl
+
+
 # Jupyter
 # -------
 
